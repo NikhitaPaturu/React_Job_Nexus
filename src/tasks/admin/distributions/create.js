@@ -199,11 +199,11 @@ module.exports = function(callback) {
       gulp.task(task.package, function() {
         return gulp.src(packageFile)
           .pipe(plumber())
-          .pipe(jsonEditor(function(package) {
+          .pipe(jsonEditor(function(pkg) {
             if(version) {
-              package.version = version;
+              pkg.version = version;
             }
-            return package;
+            return pkg;
           }))
           .pipe(gulp.dest(outputDirectory))
         ;
